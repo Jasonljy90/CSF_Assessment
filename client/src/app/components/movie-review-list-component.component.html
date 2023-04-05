@@ -1,0 +1,12 @@
+<h1>Search Result</h1>
+<mat-nav-list>
+  <a mat-list-item *ngFor="let r of reviews">
+    {{ r?.display_title }}
+    {{ r?.mpaa_rating }}
+    {{ r?.byline }}
+    {{ r?.headline }}
+    {{ r?.summary_short }}
+    {{ r?.link_url }}
+    {{ r?.multimedia_src }}
+  </a>
+</mat-nav-list>
