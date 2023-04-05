@@ -1,4 +1,48 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      (click)="back()"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="home icon"
+        fontIcon="home"
+      ></mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      (click)="comment()"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="home icon"
+        fontIcon="home"
+      ></mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
 <h1>Search Result</h1>
+<div *ngIf="reviews">
+  <p>Your search produces no result</p>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    (click)="back()"
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon
+      aria-hidden="false"
+      aria-label="home icon"
+      fontIcon="home"
+    ></mat-icon>
+  </button>
+</div>
 <mat-nav-list>
   <a mat-list-item *ngFor="let r of reviews">
     {{ r?.display_title }}

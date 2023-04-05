@@ -36,4 +36,12 @@ export class MovieReviewListComponentComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.param$.unsubscribe();
   }
+
+  comment() {
+    this.router.navigate(['/comment']);
+  }
+
+  back() {
+    this.router.navigate(['/']);
+  }
 }

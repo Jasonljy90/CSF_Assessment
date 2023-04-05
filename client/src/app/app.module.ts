@@ -8,9 +8,15 @@ import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MovieReviewListComponentComponent } from './components/movie-review-list-component.component';
+import { CommentComponent } from './components/comment.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchReviewComponentComponent, MovieReviewListComponentComponent],
+  declarations: [
+    AppComponent,
+    SearchReviewComponentComponent,
+    MovieReviewListComponentComponent,
+    CommentComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
