@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Repository;
 
 import ibf2022.batch1.csf.assessment.server.Utils;
 import ibf2022.batch1.csf.assessment.server.models.Comment;
 import ibf2022.batch1.csf.assessment.server.models.Review;
 import ibf2022.batch1.csf.assessment.server.models.ReviewCount;
 
+@Repository
 public class MovieRepository {
 	@Autowired
 	private MongoTemplate mongoTemplate;
