@@ -2,17 +2,35 @@
 <div class="box">
   <form [formGroup]="form" (ngSubmit)="add()">
     <mat-form-field appearance="fill">
-      <mat-label>Country</mat-label>
+      <mat-label>Movie Name</mat-label>
       <input matInput size="30" formControlName="movieName" />
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>City</mat-label>
-      <input matInput size="30" formControlName="city" />
+      <mat-label>Rating</mat-label>
+      <select matNativeControl required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Image URL</mat-label>
-      <input matInput size="80" formControlName="imageUrl" />
+      <mat-label>Comment</mat-label>
+      <input matInput size="80" formControlName="comment" />
     </mat-form-field>
-    <button mat-raised-button type="submit">Add</button>
+    <button mat-raised-button type="submit">Post</button>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      (click)="back()"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="home icon"
+        fontIcon="home"
+      ></mat-icon>
+    </button>
   </form>
 </div>

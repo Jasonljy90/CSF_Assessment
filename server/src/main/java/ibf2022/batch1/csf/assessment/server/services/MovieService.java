@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import ibf2022.batch1.csf.assessment.server.models.Comment;
 import ibf2022.batch1.csf.assessment.server.models.Review;
 import ibf2022.batch1.csf.assessment.server.models.ReviewCount;
-import ibf2022.batch1.csf.assessment.server.models.reviewCount;
 import ibf2022.batch1.csf.assessment.server.repositories.MovieRepository;;
 
 @Service
@@ -99,13 +99,14 @@ public class MovieService {
 
 		return id;
 	}
-	/*
-	 * review.setTitle(o.getString("display_title"));
-	 * review.setRating((o.getString("mpaa_rating")));
-	 * review.setByline(o.getString("byline"));
-	 * review.setHeadline(o.getString("headline"));
-	 * review.setSummary(o.getString("summary_short"));
-	 * review.setReviewURL(o.getString("link"));
-	 * review.setImage(o.getString("multimedia.src"));
-	 */
+
+	public String insertComment(Comment comment) {
+		Document doc = movieRepo.insertComment(comment);
+
+		if (doc.getString("movieName") == null) {
+			return "-1";
+		}
+
+		return "1";
+	}
 }

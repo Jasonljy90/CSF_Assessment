@@ -11,9 +11,9 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 import ibf2022.batch1.csf.assessment.server.Utils;
+import ibf2022.batch1.csf.assessment.server.models.Comment;
 import ibf2022.batch1.csf.assessment.server.models.Review;
 import ibf2022.batch1.csf.assessment.server.models.ReviewCount;
-import ibf2022.batch1.csf.assessment.server.services.MovieService;
 
 public class MovieRepository {
 	@Autowired
@@ -34,8 +34,9 @@ public class MovieRepository {
 	// Write the native mongo database query in the comment below
 	// db.movie_reviews.find({ "review": movieName })
 	public int countComments(ReviewCount reviewCount) {
+		int commentCount = 0;
 		int count = reviewCount.getCount();
-		int commentCount = getComments(reviewCount.getMovie());
+		// commentCount = getComments(reviewCount.getMovie());
 		return count + commentCount;
 	}
 
@@ -53,8 +54,19 @@ public class MovieRepository {
 
 		return mongoTemplate.insert(docsToInsert, "comments");
 	}
+
 	// TODO: Task 8
 	// Write a method to insert movie comments comments collection
 	// Write the native mongo database query in the comment below
-	//
+
+	// db.comments.insert({
+	// movieName: "movieName"
+	// posterName: "posterName"
+	// rating: "rating"
+	// comment: "comment"
+	// })
+	public Document insertComment(Comment comment) {
+		Document doc = Utils.toDocument(comment);
+		return mongoTemplate.insert(doc, "CSFAssessment");
+	}
 }

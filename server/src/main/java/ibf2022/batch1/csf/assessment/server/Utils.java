@@ -12,25 +12,21 @@ import java.io.StringReader;
 import java.util.List;
 import java.util.Random;
 
+import ibf2022.batch1.csf.assessment.server.models.Comment;
 import ibf2022.batch1.csf.assessment.server.models.Review;
 
 public class Utils {
     // Convert json object to java object
-    // public static Order toOrder(JsonObject json) {
-    // Order order = new Order();
-    // order.setName(json.getString("name"));
-    // order.setEmail(json.getString("email"));
-    // order.setDeliveryDate(json.getString("deliveryDate"));
-    // List<LineItem> lineItem = json.getJsonArray("lineItems")
-    // .stream()
-    // .map(v -> (JsonObject) v) // Convert JsonObj String to JsonObj
-    // .map(v -> toLineItem(v))
-    // .toList();
-    // order.setLineItem(lineItem);
-    // return order;
-    // }
+    public static Comment toComment(JsonObject json) {
+        Comment comment = new Comment();
+        comment.setMovieName(json.getString("movieName"));
+        comment.setPosterName(json.getString("posterName"));
+        comment.setRating(json.getString("rating"));
+        comment.setComment(json.getString("comment"));
+        return comment;
+    }
 
-    // Convert JsonObj to LineItem Obj
+    // Convert JsonObj to LineIt
     // private static LineItem toLineItem(JsonObject json) {
     // LineItem lineItem = new LineItem();
     // lineItem.setItem(json.getString("item"));
@@ -83,14 +79,15 @@ public class Utils {
      * 
      */
 
-    // Convert Order obj to Document
-    // public static Document toDocument(Order order) {
-    // Document document = new Document();
-    // document.put("id", order.getId());
-    // document.put("name", order.getName());
-    // document.put("email", order.getEmail());
-    // document.put("deliveryDate", order.getDeliveryDate());
-
+    // Convert Comment obj to Document
+    public static Document toDocument(Comment comment) {
+        Document document = new Document();
+        document.put("movieName", comment.getMovieName());
+        document.put("posterName", comment.getPosterName());
+        document.put("rating", comment.getRating());
+        document.put("comment", comment.getComment());
+        return document;
+    }
     // List<Document> docs = order.getLineItem()
     // .stream()
     // .map(v -> toDocument(v))
